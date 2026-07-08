@@ -6,10 +6,10 @@ import Image from "next/image";
 import { Menu, X } from "lucide-react";
 
 const links = [
-  { href: "/#bereiche", label: "Bereiche" },
-  { href: "/#rollen", label: "Rollen" },
-  { href: "/#team", label: "Team" },
-  { href: "/#entwicklung", label: "Entwicklung" },
+  { href: "/#leistungen", label: "Leistungen" },
+  { href: "/#referenzen", label: "Referenzen" },
+  { href: "/#ueber-uns", label: "Über uns" },
+  { href: "/karriere", label: "Karriere" },
 ];
 
 export function Nav() {
@@ -54,10 +54,10 @@ export function Nav() {
             </Link>
           ))}
           <Link
-            href="/bewerben"
+            href="/#kontakt"
             className="rounded-full bg-orange-500 px-5 py-2.5 text-sm font-display font-semibold text-white shadow-glowo transition-transform hover:-translate-y-0.5"
           >
-            In 2 Minuten bewerben
+            Kontakt
           </Link>
         </div>
 
@@ -86,11 +86,11 @@ export function Nav() {
               </Link>
             ))}
             <Link
-              href="/bewerben"
+              href="/#kontakt"
               onClick={() => setOpen(false)}
               className="mt-2 rounded-full bg-orange-500 px-5 py-3 text-center font-display font-semibold text-white"
             >
-              In 2 Minuten bewerben
+              Kontakt
             </Link>
           </div>
         </div>

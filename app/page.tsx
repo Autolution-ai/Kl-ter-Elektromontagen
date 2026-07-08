@@ -1,15 +1,12 @@
 import { Nav } from "@/components/Nav";
 import { Hero } from "@/components/Hero";
-import { SegmentSelect } from "@/components/SegmentSelect";
-import { RolesSection } from "@/components/RolesSection";
+import { About } from "@/components/About";
+import { Services } from "@/components/Services";
 import { TrustBar } from "@/components/TrustBar";
-import { Team } from "@/components/Team";
-import { Benefits } from "@/components/Benefits";
+import { CareerTeaser } from "@/components/CareerTeaser";
 import { CareerPath } from "@/components/CareerPath";
-import { ApplyTeaser } from "@/components/ApplyTeaser";
-import { FAQ } from "@/components/FAQ";
+import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
-import { StickyApplyBar } from "@/components/StickyApplyBar";
 
 export default function Home() {
   return (
@@ -17,17 +14,14 @@ export default function Home() {
       <Nav />
       <main>
         <Hero />
-        <SegmentSelect />
-        <RolesSection />
+        <About />
+        <Services />
         <TrustBar />
-        <Team />
-        <Benefits />
+        <CareerTeaser />
         <CareerPath />
-        <ApplyTeaser />
-        <FAQ />
+        <Contact />
       </main>
       <Footer />
-      <StickyApplyBar />
     </>
   );
 }

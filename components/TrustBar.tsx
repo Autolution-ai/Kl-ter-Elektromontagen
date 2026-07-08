@@ -7,7 +7,7 @@ import { fadeInUp, stagger, viewportOnce } from "@/lib/motion";
 
 export function TrustBar() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-blau-800 to-blau-950">
+    <section id="referenzen" className="relative overflow-hidden bg-gradient-to-br from-blau-800 to-blau-950 scroll-mt-16">
       <div className="grid-bg absolute inset-0 opacity-40" aria-hidden />
       <div className="relative mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
         <motion.dl

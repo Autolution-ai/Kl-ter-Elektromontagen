@@ -21,20 +21,20 @@ const siteUrl = "https://klueter-karriere.vercel.app";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "Karriere als Elektroniker Berlin | Klüter Elektromontagen",
+  title: "Klüter Elektromontagen | Ihr Elektrobetrieb in Berlin",
   description:
-    "Elektroniker, Kundendienst und Ausbildung bei Klüter Elektromontagen in Berlin. In 2 Minuten ohne Anschreiben bewerben. 116 Kollegen, klare Perspektiven.",
+    "Elektroinstallation, Kundendienst, Datentechnik und Energiemanagement in Berlin. Familiengeführter Meisterbetrieb seit 1972, für Privatkunden, Industrie und öffentliche Auftraggeber.",
   keywords: [
-    "Elektroniker Berlin",
-    "Elektroniker Energie- und Gebäudetechnik",
-    "Kundendiensttechniker Berlin",
-    "Ausbildung Elektroniker Berlin",
-    "Klüter Elektromontagen Karriere",
+    "Elektrobetrieb Berlin",
+    "Elektroinstallation Berlin",
+    "Elektriker Reinickendorf",
+    "Kundendienst Elektro Berlin",
+    "Klüter Elektromontagen",
   ],
   openGraph: {
-    title: "Karriere als Elektroniker Berlin | Klüter Elektromontagen",
+    title: "Klüter Elektromontagen | Ihr Elektrobetrieb in Berlin",
     description:
-      "Starke Projekte, echte Entwicklung, ehrliches Feedback. In 2 Minuten ohne Anschreiben bewerben.",
+      "Elektroinstallation, Kundendienst und Datentechnik aus einer Hand. Familiengeführter Meisterbetrieb in Berlin seit 1972.",
     type: "website",
     locale: "de_DE",
     url: siteUrl,

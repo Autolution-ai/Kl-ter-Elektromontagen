@@ -1,9 +1,8 @@
 "use client";
 
-import Link from "next/link";
 import { motion } from "framer-motion";
-import { Check, ArrowRight, ShieldCheck, Users, Zap } from "lucide-react";
-import { hero, stats } from "@/lib/content";
+import { ArrowRight, Phone, ShieldCheck, Award } from "lucide-react";
+import { heroCustomer, stats } from "@/lib/content";
 
 export function Hero() {
   return (
@@ -25,45 +24,45 @@ export function Hero() {
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
         >
           <span className="inline-flex items-center gap-2 rounded-full border border-blau-200 bg-white px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.12em] text-blau-700">
-            <Zap className="h-3.5 w-3.5 text-orange-500" aria-hidden />
-            {hero.eyebrow}
+            <Award className="h-3.5 w-3.5 text-orange-500" aria-hidden />
+            {heroCustomer.eyebrow}
           </span>
 
           <h1 className="mt-6 font-display text-4xl font-bold leading-[1.05] tracking-tight text-ink sm:text-5xl lg:text-[3.4rem]">
-            {hero.h1a}{" "}
-            <span className="text-orange-500">{hero.h1accent}</span>
+            {heroCustomer.h1a}{" "}
+            <span className="text-orange-500">{heroCustomer.h1accent}</span>
           </h1>
 
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-body">
-            {hero.sub}
+            {heroCustomer.sub}
           </p>
 
           <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
-            <Link
-              href="/bewerben"
+            <a
+              href={heroCustomer.ctaPrimary.href}
               className="inline-flex items-center justify-center gap-2 rounded-full bg-orange-500 px-8 py-4 font-display text-base font-semibold text-white shadow-glowo transition-transform hover:-translate-y-0.5"
             >
-              In 2 Minuten bewerben
+              {heroCustomer.ctaPrimary.label}
               <ArrowRight className="h-4 w-4" aria-hidden />
-            </Link>
+            </a>
             <a
-              href="#bereiche"
+              href={heroCustomer.ctaSecondary.href}
               className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-blau-600 px-8 py-4 font-display text-base font-semibold text-blau-700 transition-colors hover:bg-blau-600 hover:text-white"
             >
-              Bereich auswählen
+              {heroCustomer.ctaSecondary.label}
             </a>
           </div>
 
-          <ul className="mt-8 flex flex-col gap-2.5">
-            {hero.bullets.map((b) => (
-              <li key={b} className="inline-flex items-center gap-2.5 text-sm text-body">
-                <span className="flex h-5 w-5 items-center justify-center rounded-full bg-blau-100">
-                  <Check className="h-3 w-3 text-blau-700" aria-hidden />
-                </span>
-                {b}
-              </li>
-            ))}
-          </ul>
+          <p className="mt-7 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm font-medium text-muted">
+            <span className="inline-flex items-center gap-1.5">
+              <ShieldCheck className="h-4 w-4 text-blau-600" aria-hidden />
+              Meisterbetrieb
+            </span>
+            <span className="text-line">·</span>
+            <span>Familiengeführt seit 1972</span>
+            <span className="text-line">·</span>
+            <span>116 Mitarbeitende</span>
+          </p>
         </motion.div>
 
         <motion.div
@@ -102,15 +101,16 @@ export function Hero() {
             <ShieldCheck className="h-4 w-4 text-orange-500" aria-hidden />
             <span className="text-xs font-semibold text-ink">GMP-Kalibrierpartner</span>
           </motion.div>
-          <motion.div
+          <motion.a
+            href="tel:+4930462 3783"
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.75, duration: 0.5 }}
-            className="absolute -left-3 top-1/3 flex items-center gap-2 rounded-full border border-line bg-white px-4 py-2 shadow-card"
+            className="absolute -left-3 top-1/3 flex items-center gap-2 rounded-full border border-line bg-white px-4 py-2 shadow-card transition-transform hover:-translate-y-0.5"
           >
-            <Users className="h-4 w-4 text-blau-600" aria-hidden />
-            <span className="text-xs font-semibold text-ink">116 Kollegen</span>
-          </motion.div>
+            <Phone className="h-4 w-4 text-blau-600" aria-hidden />
+            <span className="text-xs font-semibold text-ink">(030) 462 37 83</span>
+          </motion.a>
         </motion.div>
       </div>
     </section>

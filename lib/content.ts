@@ -13,6 +13,10 @@ import {
   Award,
   CarFront,
   Search,
+  PlugZap,
+  Network,
+  Gauge,
+  Building2,
 } from "lucide-react";
 
 /* Firmendaten (oeffentlich recherchiert) */
@@ -330,9 +334,11 @@ export const faqs = [
   },
 ];
 
-/* Hero */
-export const hero = {
-  eyebrow: "Klüter Elektromontagen · Berlin-Reinickendorf",
+/* ==== KARRIERE (Unterseite /karriere, Ansprache: du) ==== */
+
+/* Karriere-Header */
+export const careerHero = {
+  eyebrow: "Karriere bei Klüter Elektromontagen",
   h1a: "Handwerk, bei dem du",
   h1accent: "wieder gern zur Arbeit gehst",
   sub: "Wir suchen Elektroniker, Kundendienst-Leute und Azubis für die Energie- und Gebäudetechnik. Ordentliche Projekte, ehrliche Leute und ein Betrieb, in dem du wächst statt verheizt zu werden.",
@@ -343,9 +349,106 @@ export const hero = {
   ],
 };
 
-/* Bewerbungs-Teaser auf der Startseite */
+/* Bewerbungs-Teaser auf der Karriereseite */
 export const applyTeaser = {
   eyebrow: "Wenn es sich richtig anhört",
   title: "Dann lass uns reden",
   text: "Kein langes Bewerbungsverfahren. Beantworte ein paar kurze Fragen zu dir und deinem Bereich, und wir melden uns. Das dauert wirklich nur zwei Minuten.",
+};
+
+/* ==== KUNDEN-STARTSEITE (Ansprache: Sie) ==== */
+
+/* Kunden-Hero */
+export const heroCustomer = {
+  eyebrow: "Elektromontagen · Berlin-Reinickendorf · seit 1972",
+  h1a: "Elektrotechnik für Berlin,",
+  h1accent: "auf die Sie sich verlassen können",
+  sub: "Von der Steckdose im Altbau bis zur kompletten Industrieanlage: Wir planen, installieren und warten Elektrik für Privatkunden, Unternehmen und öffentliche Auftraggeber. Sauber, sicher und seit über 40 Jahren.",
+  ctaPrimary: { label: "Projekt anfragen", href: "#kontakt" },
+  ctaSecondary: { label: "Unsere Leistungen", href: "#leistungen" },
+};
+
+/* Unternehmensvorstellung */
+export const about = {
+  eyebrow: "Über uns",
+  title: "Ein Familienbetrieb, der Berlin kennt",
+  paragraphs: [
+    "Seit 1972 sind wir als familiengeführter Elektrobetrieb in Berlin-Reinickendorf zu Hause. Was mit einer Handvoll Monteure begann, ist heute ein eingespieltes Team von 116 Kolleginnen und Kollegen.",
+    "Ob Wohngebäude, Industrieanlage oder öffentliche Einrichtung: Planung, Installation, Wartung und Reparatur kommen bei uns aus einer Hand. Zuverlässigkeit und Nachhaltigkeit stehen dabei an erster Stelle, damit Sie sich Jahr für Jahr auf Ihre Elektrik verlassen können.",
+  ],
+  points: [
+    "Familiengeführt seit 1972",
+    "116 feste Mitarbeitende",
+    "Meisterbetrieb mit eigener Ausbildung",
+    "B2B, B2C und B2G aus einer Hand",
+  ],
+};
+
+/* Leistungen */
+export interface Service {
+  icon: LucideIcon;
+  title: string;
+  text: string;
+}
+
+export const servicesIntro = {
+  eyebrow: "Unsere Leistungen",
+  title: "Alles rund um Ihre Elektrik",
+  intro:
+    "Wir decken das komplette Spektrum der Elektrotechnik ab, von der ersten Planung bis zur Wartung nach vielen Jahren. So haben Sie für jedes Gewerk nur einen Ansprechpartner.",
+};
+
+export const services: Service[] = [
+  {
+    icon: PlugZap,
+    title: "Elektroinstallation",
+    text: "Neubau, Sanierung und Modernisierung in Wohngebäuden und Industrieanlagen, fachgerecht und normkonform.",
+  },
+  {
+    icon: Wrench,
+    title: "Kundendienst & Wartung",
+    text: "Störungsdienst, Reparatur und Instandhaltung. Wir sorgen dafür, dass in Ihrem Betrieb nichts stillsteht.",
+  },
+  {
+    icon: Network,
+    title: "Telekommunikation & Datentechnik",
+    text: "Strukturierte Verkabelung, Netzwerke und Kommunikationstechnik für zuverlässige Verbindungen.",
+  },
+  {
+    icon: Gauge,
+    title: "Energiemanagement",
+    text: "Effiziente Energieverteilung und Messtechnik, die Ihre Verbräuche sichtbar und planbar machen.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Kalibrierservice für Pharma",
+    text: "Kalibrierung und Validierung messrelevanter Punkte nach FDA, GMP und DIN ISO 9001.",
+  },
+  {
+    icon: Building2,
+    title: "Gebäude- & Sicherheitstechnik",
+    text: "Beleuchtung, Brandmelde- und Sicherheitstechnik für Gebäude, auf die Verlass ist.",
+  },
+];
+
+/* Kompakter Karrierebereich auf der Startseite */
+export const careerTeaser = {
+  eyebrow: "Karriere bei Klüter",
+  title: "Wir suchen Verstärkung",
+  text: "Elektrotechnik lebt von den Menschen, die sie machen. Wir bilden aus, entwickeln weiter und halten zusammen. Wer sauber arbeitet und dazulernen will, findet bei uns einen Platz für lange.",
+  points: [
+    "Ausbildung Elektroniker Energie- und Gebäudetechnik",
+    "Kundendienst oder Baustelle, je nach deiner Stärke",
+    "Unterstützung bis zum Meister oder Studium",
+  ],
+  ctaPrimary: { label: "In 2 Minuten bewerben", href: "/bewerben" },
+  ctaSecondary: { label: "Mehr über Karriere", href: "/karriere" },
+};
+
+/* Kontakt */
+export const contact = {
+  eyebrow: "Kontakt",
+  title: "Sprechen wir über Ihr Projekt",
+  text: "Ob Angebot, Störung oder Wartungsvertrag: Rufen Sie uns an oder schreiben Sie uns. Wir melden uns schnell und unkompliziert.",
+  hours: "Mo bis Fr, 7:00 bis 16:00 Uhr",
 };
