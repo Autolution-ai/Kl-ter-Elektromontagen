@@ -28,10 +28,19 @@ npm run start    # Produktions-Server
 - `lib/content.ts` – zentrale Quelle für Texte und Firmendaten
 - `lib/motion.ts` – Framer-Motion-Varianten
 
+## Corporate Identity
+
+Farben aus dem Firmenlogo (`public/klueter-logo.png`): Blau `#116DB1` als Struktur- und
+Headline-Farbe, Orange `#E8503E` als CTA- und Energie-Akzent. Helles, professionelles Theme.
+Das Logo ist in Navigation und Footer eingebunden.
+
 ## Bewerber-Funnel
 
+Der Funnel liegt auf der eigenen Unterseite `/bewerben`. Die Startseite zeigt nur einen kurzen
+Teaser mit Call-to-Action. Zielgruppen-Karten und Rollen-CTAs verlinken mit vorausgewähltem
+Bereich (`/bewerben?bereich=<id>`), der Funnel überspringt dann die Bereichswahl.
+
 Clientseitiger Zustandsautomat mit drei Tracks (Fachkraft, Ausbildung, kaufmännische Ausbildung).
-Zielgruppen-Karten und Rollen-CTAs setzen den passenden Track vor und scrollen zum Funnel.
 
 **Demo-Modus:** Die Bewerbung wird nicht versendet oder gespeichert; am Ende erscheint eine
 Zusammenfassung. Für den Echtbetrieb kann eine API-Route (z. B. E-Mail-Versand) ergänzt werden.
@@ -40,6 +49,7 @@ Honeypot-Feld und Datenschutz-Checkbox sind bereits vorbereitet.
 ## Offene Punkte vor Go-Live
 
 - Impressum: HRB-Nummer und USt-IdNr ergänzen (aktuell als `[zu ergänzen]` markiert).
-- Referenzen: Kundennamen sind typografische Platzhalter. Nach Freigabe echte Logos in `TrustBar` einsetzen.
+- Referenzen: Marken-Logos in `components/brandLogos.tsx` sind vereinfachte Nachbildungen. Vor Go-Live durch offiziell freigegebene Logo-Assets ersetzen.
+- Team: Foto-Platzhalter in `components/Team.tsx` nach dem Fototermin durch echte Aufnahmen ersetzen.
 - Datenschutzerklärung rechtlich prüfen lassen.
 - Optional: echter Formular-Versand (API-Route) statt Demo-Zusammenfassung.

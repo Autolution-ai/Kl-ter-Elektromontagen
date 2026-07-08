@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 function Heading({ children }: { children: React.ReactNode }) {
   return (
-    <h2 className="font-display text-lg font-semibold text-chalk">{children}</h2>
+    <h2 className="font-display text-lg font-semibold text-ink">{children}</h2>
   );
 }
 
@@ -52,7 +52,7 @@ export default function Datenschutz() {
           DSGVO, § 26 BDSG). Die Angaben werden nach Abschluss des Verfahrens
           gelöscht, sofern keine gesetzlichen Aufbewahrungsfristen entgegenstehen.
         </p>
-        <p className="mt-2 text-xs text-ink-500">
+        <p className="mt-2 text-xs text-muted">
           Hinweis Demo: In dieser Demo-Fassung werden keine Daten an einen Server
           übertragen oder gespeichert. Die Eingaben bleiben im Browser.
         </p>
@@ -74,7 +74,7 @@ export default function Datenschutz() {
         </p>
       </div>
 
-      <p className="text-xs text-ink-500">
+      <p className="text-xs text-muted">
         Hinweis: Diese Datenschutzerklärung ist eine Vorlage für eine
         Demo-Karriereseite und vor Veröffentlichung rechtlich zu prüfen und zu
         ergänzen.

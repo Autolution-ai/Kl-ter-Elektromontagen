@@ -17,7 +17,7 @@ interface FunnelState {
   track: FunnelTrack | null;
   segment: SegmentId | null;
   answers: Record<string, AnswerValue>;
-  stepIndex: number; // 0 = Bereichswahl, danach Fragen des Tracks
+  stepIndex: number; // 0 = Bereichswahl, danach Fragen des Tracks, dann Kontakt
   status: "idle" | "active" | "done";
 }
 
@@ -30,13 +30,27 @@ type Action =
   | { type: "SUBMIT" }
   | { type: "RESET" };
 
-const initialState: FunnelState = {
-  track: null,
-  segment: null,
-  answers: {},
-  stepIndex: 0,
-  status: "idle",
-};
+function makeInitial(initialSegment?: SegmentId | null): FunnelState {
+  const seg = initialSegment
+    ? segments.find((s) => s.id === initialSegment)
+    : undefined;
+  if (seg) {
+    return {
+      track: seg.track,
+      segment: seg.id,
+      answers: { bereich: seg.label },
+      stepIndex: 1,
+      status: "active",
+    };
+  }
+  return {
+    track: null,
+    segment: null,
+    answers: {},
+    stepIndex: 0,
+    status: "idle",
+  };
+}
 
 function reducer(state: FunnelState, action: Action): FunnelState {
   switch (action.type) {
@@ -69,9 +83,7 @@ function reducer(state: FunnelState, action: Action): FunnelState {
         answers: { ...state.answers, [action.id]: action.value },
       };
     case "NEXT": {
-      const total = state.track
-        ? questionsByTrack[state.track].length + 1
-        : 1;
+      const total = state.track ? questionsByTrack[state.track].length + 1 : 1;
       return { ...state, stepIndex: Math.min(state.stepIndex + 1, total) };
     }
     case "BACK":
@@ -79,7 +91,7 @@ function reducer(state: FunnelState, action: Action): FunnelState {
     case "SUBMIT":
       return { ...state, status: "done" };
     case "RESET":
-      return initialState;
+      return makeInitial(null);
     default:
       return state;
   }
@@ -93,20 +105,23 @@ interface FunnelContextValue extends FunnelState {
 
 const FunnelContext = createContext<FunnelContextValue | null>(null);
 
-export function FunnelProvider({ children }: { children: ReactNode }) {
-  const [state, dispatch] = useReducer(reducer, initialState);
+export function FunnelProvider({
+  children,
+  initialSegment = null,
+}: {
+  children: ReactNode;
+  initialSegment?: SegmentId | null;
+}) {
+  const [state, dispatch] = useReducer(
+    reducer,
+    initialSegment,
+    makeInitial
+  );
 
   const selectSegment = useCallback((segment: SegmentId) => {
     dispatch({ type: "SELECT_SEGMENT", segment });
-    // Nach dem Setzen zum Funnel scrollen
-    requestAnimationFrame(() => {
-      document
-        .getElementById("bewerben")
-        ?.scrollIntoView({ behavior: "smooth", block: "start" });
-    });
   }, []);
 
-  // Bereichswahl + Fachfragen + Kontaktschritt
   const totalSteps = state.track
     ? questionsByTrack[state.track].length + 2
     : 1;

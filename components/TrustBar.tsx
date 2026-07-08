@@ -1,14 +1,15 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { stats, referenceBrands, trustNote } from "@/lib/content";
-import { Section } from "@/components/ui/primitives";
+import { stats, referenceBrands, trustHeadline, trustNote } from "@/lib/content";
+import { brandLogoMap } from "@/components/brandLogos";
 import { fadeInUp, stagger, viewportOnce } from "@/lib/motion";
 
 export function TrustBar() {
   return (
-    <Section className="py-16 sm:py-20">
-      <div className="rounded-3xl border border-ink-600 bg-ink-900/50 p-8 sm:p-10">
+    <section className="relative overflow-hidden bg-gradient-to-br from-blau-800 to-blau-950">
+      <div className="grid-bg absolute inset-0 opacity-40" aria-hidden />
+      <div className="relative mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
         <motion.dl
           variants={stagger}
           initial="hidden"
@@ -18,34 +19,47 @@ export function TrustBar() {
         >
           {stats.map((s) => (
             <motion.div key={s.label} variants={fadeInUp} className="text-center sm:text-left">
-              <dt className="font-display text-4xl font-bold text-signal sm:text-5xl">
+              <dt className="font-display text-2xl font-bold leading-tight text-white sm:text-4xl">
                 {s.value}
               </dt>
-              <dd className="mt-1 text-sm text-muted">{s.label}</dd>
+              <dd className="mt-1.5 text-sm text-blau-100">{s.label}</dd>
             </motion.div>
           ))}
         </motion.dl>
 
-        <p className="mt-9 max-w-3xl text-sm leading-relaxed text-muted">
-          {trustNote}
-        </p>
+        <div className="mt-14 border-t border-white/10 pt-10">
+          <p className="font-display text-sm font-semibold uppercase tracking-[0.16em] text-orange-400">
+            {trustHeadline}
+          </p>
 
-        {/* Referenz-Wortmarken. PLATZHALTER: typografische Namen statt Original-Logos.
-            Nach Logo-Freigabe hier die freigegebenen Assets einsetzen. */}
-        <div className="mt-6 flex flex-wrap items-center gap-x-8 gap-y-4">
-          {referenceBrands.map((brand) => (
-            <span
-              key={brand}
-              className="font-display text-lg font-semibold tracking-tight text-muted/70 grayscale transition-colors hover:text-chalk"
-            >
-              {brand}
-            </span>
-          ))}
+          {/* Referenz-Logos (monochrom, farbig bei Hover) */}
+          <div
+            className="mt-6 flex flex-wrap items-center gap-x-10 gap-y-7"
+            style={{ ["--logo-knockout" as string]: "#08243D" }}
+          >
+            {referenceBrands.map((id) => {
+              const entry = brandLogoMap[id];
+              if (!entry) return null;
+              const { Comp, h } = entry;
+              return (
+                <span
+                  key={id}
+                  className="text-white/55 transition-colors duration-300 hover:text-white"
+                >
+                  <Comp className={`${h} w-auto`} />
+                </span>
+              );
+            })}
+          </div>
+
+          <p className="mt-8 max-w-3xl text-sm leading-relaxed text-blau-100">
+            {trustNote}
+          </p>
+          <p className="mt-3 text-xs text-blau-200/70">
+            Logos zu Demonstrationszwecken dargestellt, vor Veröffentlichung durch freigegebene Marken-Assets ersetzen.
+          </p>
         </div>
-        <p className="mt-3 text-xs text-ink-500">
-          Kundennamen als Platzhalter dargestellt. Logos folgen nach Freigabe.
-        </p>
       </div>
-    </Section>
+    </section>
   );
 }

@@ -12,8 +12,8 @@ html {
 }
 
 body {
-  background-color: #0e1116;
-  color: #f5f6f8;
+  background-color: #ffffff;
+  color: #41546a;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
@@ -32,27 +32,37 @@ body {
   }
 }
 
-/* Fokus-Sichtbarkeit fuer Tastaturnutzer (Barrierefreiheit) */
+/* Fokus-Sichtbarkeit fuer Tastaturnutzer */
 :focus-visible {
-  outline: 3px solid #f5b301;
+  outline: 3px solid #e8503e;
   outline-offset: 2px;
   border-radius: 4px;
 }
 
-/* Feiner Karo-Raster-Hintergrund (technisch/industriell) */
+/* Feiner technischer Raster-Hintergrund (fuer dunkle Baender) */
 .grid-bg {
   background-image:
-    linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
-  background-size: 48px 48px;
+    linear-gradient(to right, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-size: 46px 46px;
 }
 
-/* Feiner oberer Trennstrich in Signalfarbe */
-.rule-signal {
-  background: linear-gradient(90deg, transparent, #f5b301, transparent);
+/* Raster fuer helle Flaechen */
+.grid-bg-light {
+  background-image:
+    linear-gradient(to right, rgba(17, 109, 177, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(17, 109, 177, 0.05) 1px, transparent 1px);
+  background-size: 46px 46px;
 }
 
 ::selection {
-  background: #f5b301;
-  color: #0e1116;
+  background: #e8503e;
+  color: #ffffff;
+}
+
+/* Logo-Kontrast auf dunklen Flaechen sicherstellen (Logo hat weissen Hintergrund) */
+.logo-chip {
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 6px 10px;
 }

@@ -10,10 +10,10 @@ export function FAQ() {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <Section id="faq" className="py-16 sm:py-20">
+    <Section id="faq">
       <SectionHeading eyebrow="Häufige Fragen" title="Kurz und ehrlich beantwortet" />
 
-      <div className="mx-auto mt-8 max-w-2xl divide-y divide-ink-700 border-y border-ink-700">
+      <div className="mx-auto mt-8 max-w-2xl divide-y divide-line border-y border-line">
         {faqs.map((f, i) => {
           const isOpen = open === i;
           return (
@@ -24,10 +24,10 @@ export function FAQ() {
                 className="flex w-full items-center justify-between gap-4 py-5 text-left"
                 aria-expanded={isOpen}
               >
-                <span className="font-display text-base font-semibold text-chalk">
+                <span className="font-display text-base font-semibold text-ink">
                   {f.q}
                 </span>
-                <span className="shrink-0 text-signal">
+                <span className="shrink-0 text-orange-500">
                   {isOpen ? <Minus className="h-5 w-5" /> : <Plus className="h-5 w-5" />}
                 </span>
               </button>
@@ -40,7 +40,7 @@ export function FAQ() {
                     transition={{ duration: 0.3, ease: "easeOut" }}
                     className="overflow-hidden"
                   >
-                    <p className="pb-5 text-sm leading-relaxed text-muted">{f.a}</p>
+                    <p className="pb-5 text-sm leading-relaxed text-body">{f.a}</p>
                   </motion.div>
                 )}
               </AnimatePresence>

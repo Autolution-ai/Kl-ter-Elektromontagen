@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 function Heading({ children }: { children: React.ReactNode }) {
   return (
-    <h2 className="font-display text-lg font-semibold text-chalk">{children}</h2>
+    <h2 className="font-display text-lg font-semibold text-ink">{children}</h2>
   );
 }
 
@@ -70,7 +70,7 @@ export default function Impressum() {
         </p>
       </div>
 
-      <p className="text-xs text-ink-500">
+      <p className="text-xs text-muted">
         Hinweis: Diese Seite ist eine Demo-Karriereseite. Register- und
         Umsatzsteuerangaben sind als Platzhalter gekennzeichnet und vor
         Veröffentlichung zu ergänzen.
