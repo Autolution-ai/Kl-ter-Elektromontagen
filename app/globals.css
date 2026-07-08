@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-display: "Space Grotesk", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #0e1116;
+  color: #f5f6f8;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Reduzierte Bewegung respektieren */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Fokus-Sichtbarkeit fuer Tastaturnutzer (Barrierefreiheit) */
+:focus-visible {
+  outline: 3px solid #f5b301;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Feiner Karo-Raster-Hintergrund (technisch/industriell) */
+.grid-bg {
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+/* Feiner oberer Trennstrich in Signalfarbe */
+.rule-signal {
+  background: linear-gradient(90deg, transparent, #f5b301, transparent);
+}
+
+::selection {
+  background: #f5b301;
+  color: #0e1116;
+}
